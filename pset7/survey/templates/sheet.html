@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<table id="superheroes" class="">
+    <thead>
+        <tr>
+            <th>Hero Name</th>
+            <th>Real Name</th>
+            <th>Hero Team</th>
+            <th>Main Villain</th>
+            <th>Race</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for hero in heroes %}
+        <tr>
+                <td> {{ hero["heroName"] }} </td>
+                <td> {{ hero["realName"] }} </td>
+                <td> {{ hero["heroTeam"] }} </td>
+                <td> {{ hero["mainVillain"] }} </td>
+                <td class="text-capitalize"> {{ hero["race"] }} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Hero Name</th>
+            <th>Real Name</th>
+            <th>Hero Team</th>
+            <th>Main Villain</th>
+            <th>Race</th>
+        </tr>
+    </tfoot>
+</table>
+<script>
+    $(document).ready(function() {
+        $('#superheroes').DataTable();
+    } );
+</script>
+
+{% endblock %}
